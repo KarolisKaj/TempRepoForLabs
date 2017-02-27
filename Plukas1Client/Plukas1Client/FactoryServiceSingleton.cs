@@ -1,5 +1,6 @@
 ﻿namespace Plukas1Client
 {
+    using FactoryStructs;
     using Products;
     public class FactoryServiceSingleton
     {
@@ -14,7 +15,7 @@
                 lock (_lockRoot)
                 {
                     if (_productFactory == null)
-                        _productFactory = new ProductFactory();
+                        _productFactory = new AFamilyFactory();
                     return _productFactory;
                 }
             }
