@@ -48,10 +48,12 @@
     <Compile Include="Dependencies.cs" />
     <Compile Include="FactoryServiceSingleton.cs" />
     <Compile Include="FactoryStructs\BCFamilyFactory.cs" />
-    <Compile Include="FactoryStructs\ICloneableFactory.cs" />
+    <Compile Include="FactoryStructs\DEFamilyFactory.cs" />
+    <Compile Include="FactoryStructs\ICloneableProductFactory.cs" />
     <Compile Include="FactoryStructs\IProductFactory.cs" />
     <Compile Include="FactoryStructs\IProductParametrizedFactory.cs" />
     <Compile Include="Products\ProductA0.cs" />
+    <Compile Include="Products\ProductA1.cs" />
     <Compile Include="Products\ProductABase.cs" />
     <Compile Include="FactoryStructs\AFamilyFactory.cs" />
     <Compile Include="Products\ProductB0.cs" />

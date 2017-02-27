@@ -1,6 +1,5 @@
 ﻿namespace Plukas1Client.Products
 {
-    using System;
     using System.Collections.Generic;
     public class ProductB0 : ProductBBase
     {
@@ -10,7 +9,7 @@
 
         public override object Clone()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

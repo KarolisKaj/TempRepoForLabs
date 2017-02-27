@@ -6,7 +6,6 @@ namespace Plukas1Client
     {
         public BootStrapper(string[] args)
         {
-
             FactoryServiceSingleton.ProductFactory.CreateProduct(args);
         }
     }

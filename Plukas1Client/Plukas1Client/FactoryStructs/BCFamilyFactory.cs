@@ -1,22 +1,18 @@
-﻿using Plukas1Client.FactoryStructs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Plukas1Client.Products;
 
 namespace Plukas1Client.FactoryStructs
 {
-    class BCFamilyFactory : IProductFactory
+    class BCFamilyFactory : IProductParametrizedFactory
     {
-        public ProductABase CreateProductA(string name)
+        public ProductABase CreateProductA(Type t)
         {
+            return (t.GetConstructor(null).Invoke(null) as ProductABase);
         }
 
-        public ProductBBase CreateProductB(IEnumerable<string> identifiers)
+        public ProductBBase CreateProductB(Type t)
         {
-            throw new NotImplementedException();
+            return (t.GetConstructor(null).Invoke(null) as ProductBBase);
         }
     }
 }

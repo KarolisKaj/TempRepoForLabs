@@ -15,7 +15,7 @@ namespace Plukas1Client
         public Dictionary<string, Type[]> RegisteredDependencies { get { return _registeredDependencies; } }
         public void InitializeGroups()
         {
-            _registeredDependencies.Add("A", new Type[] { typeof(ProductA) });
+            _registeredDependencies.Add("A", new Type[] { typeof(ProductA0) });
         }
     }
 }

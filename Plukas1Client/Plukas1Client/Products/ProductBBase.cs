@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    public abstract class ProductBBase : ICloneable
+    public class ProductBBase : ICloneable
     {
         public ProductBBase(IEnumerable<string> indentifiers)
         {
@@ -11,6 +11,9 @@
 
         public IEnumerable<string> Indentifiers { get; set; }
 
-        public abstract object Clone();
+        public virtual object Clone()
+        {
+            return new ProductBBase(Indentifiers);
+        }
     }
 }

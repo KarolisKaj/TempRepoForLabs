@@ -4,7 +4,7 @@
 
     public class AFamilyFactory : IProductFactory
     {
-        private const string _defaultName = "productADefault";
+
         public ProductABase CreateProductA()
         {
             return new ProductA0(_defaultName);

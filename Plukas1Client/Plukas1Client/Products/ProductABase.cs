@@ -1,7 +1,7 @@
 ﻿namespace Plukas1Client.Products
 {
     using System;
-    public abstract class ProductABase : ICloneable
+    public class ProductABase : ICloneable
     {
         public ProductABase(string name)
         {
@@ -10,6 +10,9 @@
 
         public string Name { get; }
 
-        public abstract object Clone();
+        public virtual object Clone()
+        {
+            return new ProductABase(this.Name);
+        }
     }
 }
