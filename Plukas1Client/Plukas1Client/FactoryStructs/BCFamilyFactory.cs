@@ -7,6 +7,8 @@ namespace Plukas1Client.FactoryStructs
     {
         public ProductABase CreateProductA(Type t)
         {
+           
+
             return (t.GetConstructor(null).Invoke(null) as ProductABase);
         }
 

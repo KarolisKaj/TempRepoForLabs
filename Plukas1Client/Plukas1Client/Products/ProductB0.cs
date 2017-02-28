@@ -9,7 +9,7 @@
 
         public override object Clone()
         {
-
+            return null;
         }
     }
 }

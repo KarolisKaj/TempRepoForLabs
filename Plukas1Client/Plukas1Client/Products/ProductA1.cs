@@ -12,7 +12,7 @@
             Color = color;
         }
 
-        public string Color { get; set; } = "Black";
+        public string Color { get; set; } = "White";
         public int Count { get; set; }
 
         public override object Clone()
