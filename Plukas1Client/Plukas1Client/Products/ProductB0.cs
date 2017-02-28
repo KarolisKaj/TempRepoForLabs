@@ -7,9 +7,9 @@
         {
         }
 
-        public override object Clone()
+        public override ProductBBase Clone()
         {
-            return null;
+            return base.Clone();
         }
     }
 }

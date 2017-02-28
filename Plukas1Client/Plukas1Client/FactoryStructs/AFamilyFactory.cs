@@ -2,17 +2,24 @@
 {
     using Products;
 
-    //public class AFamilyFactory : IProductFactory
-    //{
+    public class AFamilyFactory : IProductFactory
+    {
+        private string _defaultName = "DefaultName";
+        private int _number = 15;
 
-        //public ProductABase CreateProductA()
-        //{
-        //    return new ProductA0(_defaultName);
-        //}
+        public ProductABase CreateProductA()
+        {
+            return new ProductA0(_defaultName, _number);
+        }
 
-        //public ProductBBase CreateProductB()
-        //{
-        //    return new ProductB0(new string[] { _defaultName });
-        //}
-    //}
+        public ProductABase CreateProductA(int number)
+        {
+            return new ProductA0(_defaultName, number);
+        }
+
+        public ProductBBase CreateProductB()
+        {
+            return new ProductB0(new string[] { _defaultName });
+        }
+    }
 }

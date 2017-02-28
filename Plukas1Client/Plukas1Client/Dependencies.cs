@@ -1,11 +1,6 @@
-﻿using Plukas1Client.Contracts;
-using Plukas1Client.Products;
+﻿using Plukas1Client.Products;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Plukas1Client
 {
