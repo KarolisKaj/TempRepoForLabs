@@ -11,6 +11,9 @@ namespace Plukas1Client
         public void InitializeGroups()
         {
             _registeredDependencies.Add("A", new Type[] { typeof(ProductA0) });
+            _registeredDependencies.Add("BC", new Type[] { typeof(ProductA0) });
+            _registeredDependencies.Add("DE", new Type[] { typeof(ProductA0) });
+            _registeredDependencies.Add("A", new Type[] { typeof(ProductA0) });
         }
     }
 }

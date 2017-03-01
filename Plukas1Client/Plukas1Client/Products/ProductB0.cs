@@ -6,11 +6,6 @@
         public ProductB0(IEnumerable<string> indentifiers) : base(indentifiers)
         {
         }
-
-        public override ProductBBase Clone()
-        {
-            return base.Clone();
-        }
     }
 }
 

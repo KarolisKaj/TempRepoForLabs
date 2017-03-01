@@ -56,6 +56,7 @@
     <Compile Include="Products\ProductABase.cs" />
     <Compile Include="FactoryStructs\AFamilyFactory.cs" />
     <Compile Include="Products\ProductB0.cs" />
+    <Compile Include="Products\ProductB1.cs" />
     <Compile Include="Products\ProductBBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
