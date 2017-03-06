@@ -59,12 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootStrapper.cs" />
-    <Compile Include="Dependencies.cs" />
     <Compile Include="FactoryServiceSingleton.cs" />
     <Compile Include="FactoryStructs\BCFamilyFactory.cs" />
     <Compile Include="FactoryStructs\DEFamilyFactory.cs" />
     <Compile Include="FactoryStructs\ICloneableProductFactory.cs" />
-    <Compile Include="FactoryStructs\IFactory.cs" />
     <Compile Include="FactoryStructs\IProductFactory.cs" />
     <Compile Include="FactoryStructs\IProductParametrizedFactory.cs" />
     <Compile Include="Products\ProductA0.cs" />
