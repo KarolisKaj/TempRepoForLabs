@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Plukas1Client.FactoryStructs
 {
-    public interface IProductFactory
+    public interface IProductFactory: IFactory
     {
         ProductABase CreateProductA();
         ProductABase CreateProductA(string name);

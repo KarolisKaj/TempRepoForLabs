@@ -6,6 +6,12 @@
         public ProductB0(IEnumerable<string> indentifiers) : base(indentifiers)
         {
         }
+
+        public ProductB0(IEnumerable<string> indentifiers, int count) : this(indentifiers)
+        {
+            Count = count;
+        }
+        public int Count { get; set; }
     }
 }
 

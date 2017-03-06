@@ -1,12 +1,11 @@
-﻿using System;
-
-namespace Plukas1Client
+﻿namespace Plukas1Client
 {
     internal class BootStrapper
     {
-        public BootStrapper(string[] args)
+        public BootStrapper(params object[] args)
         {
-            //FactoryServiceSingleton.ProductFactory.CreateProduct(args);
+            var request = args[0] as string;
+            var factory = Dependencies.RegisteredDependencies[request];
         }
     }
 }

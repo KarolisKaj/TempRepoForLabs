@@ -1,19 +1,26 @@
-﻿using Plukas1Client.Products;
-using System;
+﻿using Plukas1Client.FactoryStructs;
 using System.Collections.Generic;
 
 namespace Plukas1Client
 {
-    public class Dependencies
+    public static class Dependencies
     {
-        private Dictionary<string, Type[]> _registeredDependencies;
-        public Dictionary<string, Type[]> RegisteredDependencies { get { return _registeredDependencies; } }
-        public void InitializeGroups()
+        static Dependencies()
         {
-            _registeredDependencies.Add("A", new Type[] { typeof(ProductA0) });
-            _registeredDependencies.Add("BC", new Type[] { typeof(ProductA0) });
-            _registeredDependencies.Add("DE", new Type[] { typeof(ProductA0) });
-            _registeredDependencies.Add("A", new Type[] { typeof(ProductA0) });
+            InitializeGroups();
+        }
+
+        private static Dictionary<string, IFactory> _registeredDependencies;
+        public static Dictionary<string, IFactory> RegisteredDependencies { get { return _registeredDependencies; } }
+
+        private static void InitializeGroups()
+        {
+            _registeredDependencies.Add("A", FactoryServiceSingleton.ProductFactory);
+            _registeredDependencies.Add("B", new BCFamilyFactory());
+            _registeredDependencies.Add("C", new BCFamilyFactory());
+            _registeredDependencies.Add("D", new DEFamilyFactory());
+            _registeredDependencies.Add("E", new DEFamilyFactory());
+            _registeredDependencies.Add("F", FactoryServiceSingleton.ProductFactory);
         }
     }
 }

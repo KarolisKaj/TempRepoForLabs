@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    public class ProductBBase
+    public abstract class ProductBBase
     {
         public ProductBBase(IEnumerable<string> indentifiers)
         {

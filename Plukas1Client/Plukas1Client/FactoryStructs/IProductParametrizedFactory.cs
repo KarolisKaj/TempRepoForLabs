@@ -3,9 +3,9 @@ using System;
 
 namespace Plukas1Client.FactoryStructs
 {
-    public interface IProductParametrizedFactory
+    public interface IProductParametrizedFactory: IFactory
     {
-        ProductABase CreateProductA(Type t);
-        ProductBBase CreateProductB(Type t);
+        ProductABase CreateProductA(params object[] args);
+        ProductBBase CreateProductB(params object[] args);
     }
 }
