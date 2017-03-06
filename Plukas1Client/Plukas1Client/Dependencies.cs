@@ -5,16 +5,20 @@ namespace Plukas1Client
 {
     public static class Dependencies
     {
-        static Dependencies()
-        {
-            InitializeGroups();
-        }
-
         private static Dictionary<string, IFactory> _registeredDependencies;
-        public static Dictionary<string, IFactory> RegisteredDependencies { get { return _registeredDependencies; } }
+        public static Dictionary<string, IFactory> RegisteredDependencies
+        {
+            get
+            {
+                if (_registeredDependencies == null)
+                    InitializeGroups();
+                return _registeredDependencies;
+            }
+        }
 
         private static void InitializeGroups()
         {
+            _registeredDependencies = new Dictionary<string, IFactory>();
             _registeredDependencies.Add("A", FactoryServiceSingleton.ProductFactory);
             _registeredDependencies.Add("B", new BCFamilyFactory());
             _registeredDependencies.Add("C", new BCFamilyFactory());
