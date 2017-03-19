@@ -4,7 +4,7 @@ namespace Plukas1Client.FactoryStructs
 {
     public interface ICloneableProductFactory
     {
-        ProductABase CreateProductA(ProductABase prototype);
-        ProductBBase CreateProductB(ProductBBase prototype);
+        CandyBase CreateProductA(CandyBase prototype);
+        MeatBase CreateProductB(MeatBase prototype);
     }
 }

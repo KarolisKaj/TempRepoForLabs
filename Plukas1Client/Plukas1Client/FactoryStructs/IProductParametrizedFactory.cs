@@ -4,7 +4,7 @@ namespace Plukas1Client.FactoryStructs
 {
     public interface IProductParametrizedFactory
     {
-        ProductABase CreateProductA(params object[] args);
-        ProductBBase CreateProductB(params object[] args);
+        CandyBase CreateProductA(params object[] args);
+        MeatBase CreateProductB(params object[] args);
     }
 }

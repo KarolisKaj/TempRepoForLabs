@@ -10,8 +10,8 @@ namespace Plukas1Client.FactoryStructs
         }
 
     
-        public ProductABase CreateProductA(ProductABase prototype) => (prototype?.Clone() as ProductABase);
+        public CandyBase CreateProductA(CandyBase prototype) => (prototype?.Clone() as CandyBase);
 
-        public ProductBBase CreateProductB(ProductBBase prototype) => (prototype?.Clone() as ProductBBase);
+        public MeatBase CreateProductB(MeatBase prototype) => (prototype?.Clone() as MeatBase);
     }
 }

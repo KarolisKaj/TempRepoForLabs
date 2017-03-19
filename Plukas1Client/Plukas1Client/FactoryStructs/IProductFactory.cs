@@ -5,7 +5,7 @@ namespace Plukas1Client.FactoryStructs
 {
     public interface IProductFactory
     {
-        ProductABase CreateProductA(string name, int number);
-        ProductBBase CreateProductB(IEnumerable<string> idetifiers, string name);
+        CandyBase CreateCandy(string name, string covering);
+        DrinkBase CreateDrink(string name, string type, int alcoholPercentage);
     }
 }

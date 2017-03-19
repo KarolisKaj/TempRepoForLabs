@@ -65,16 +65,20 @@
     <Compile Include="FactoryStructs\ICloneableProductFactory.cs" />
     <Compile Include="FactoryStructs\IProductFactory.cs" />
     <Compile Include="FactoryStructs\IProductParametrizedFactory.cs" />
-    <Compile Include="Products\ProductA0.cs" />
-    <Compile Include="Products\ProductA1.cs" />
-    <Compile Include="Products\ProductABase.cs" />
-    <Compile Include="FactoryStructs\AFamilyFactory.cs" />
-    <Compile Include="Products\ProductB0.cs" />
-    <Compile Include="Products\ProductB1.cs" />
-    <Compile Include="Products\ProductBBase.cs" />
+    <Compile Include="Products\CandyCaramel.cs" />
+    <Compile Include="Products\CandyChocolade.cs" />
+    <Compile Include="Products\CandyBase.cs" />
+    <Compile Include="FactoryStructs\CandyFactory.cs" />
+    <Compile Include="Products\DrinkAlchohol.cs" />
+    <Compile Include="Products\DrinkBase.cs" />
+    <Compile Include="Products\DrinkEnergy.cs" />
+    <Compile Include="Products\MeatBeef.cs" />
+    <Compile Include="Products\MeatChicken.cs" />
+    <Compile Include="Products\MeatBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ObjectExtensions.cs" />
+    <Compile Include="Values\Served.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

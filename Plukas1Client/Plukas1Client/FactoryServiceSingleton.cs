@@ -17,7 +17,7 @@
                 if (_productFactory == null)
                     lock (_lockRoot)
                         if (_productFactory == null)
-                            _productFactory = new AFamilyFactory();
+                            _productFactory = new CandyFactory();
 
                 return _productFactory;
             }

@@ -9,25 +9,25 @@ namespace Plukas1Client.FactoryStructs
     {
         private object[] ADefaultArgs { get; set; } = new object[] { "One", "Two" };
 
-        public ProductABase CreateProductA(params object[] args)
+        public CandyBase CreateProductA(params object[] args)
         {
             if (args.Length != 1)
                 return ((args[0] as Type).GetConstructor(args.Skip(1).Select(x => x.GetType()).ToArray())
-                .Invoke(args.Skip(1).ToArray()) as ProductABase);
+                .Invoke(args.Skip(1).ToArray()) as CandyBase);
             else
                 return ((args[0] as Type).GetConstructor(ADefaultArgs.Select(x => x.GetType()).ToArray())
-               .Invoke(ADefaultArgs) as ProductABase);
+               .Invoke(ADefaultArgs) as CandyBase);
         }
 
         private object[] BDefaultArgs { get; set; } = new object[] { (IEnumerable<string>)new List<string>() { "Hello" }, 5 };
-        public ProductBBase CreateProductB(params object[] args)
+        public MeatBase CreateProductB(params object[] args)
         {
             if (args.Length != 1)
                 return ((args[0] as Type).GetConstructor(args.Skip(1).Select(x => x.GetType()).ToArray())
-                    .Invoke(args.Skip(1).ToArray()) as ProductBBase);
+                    .Invoke(args.Skip(1).ToArray()) as MeatBase);
             else
                 return ((args[0] as Type).GetConstructor(BDefaultArgs.Select(x => x.GetType()).ToArray())
-                     .Invoke(BDefaultArgs) as ProductBBase);
+                     .Invoke(BDefaultArgs) as MeatBase);
         }
     }
 }
