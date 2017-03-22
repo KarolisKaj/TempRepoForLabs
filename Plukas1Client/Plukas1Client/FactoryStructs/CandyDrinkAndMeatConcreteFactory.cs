@@ -18,7 +18,6 @@ namespace Plukas1Client.FactoryStructs
         public MeatBase CreateMeat(params object[] args)
         {
             return new MeatChicken((int)args[0], (Served)args[1]);
-
         }
     }
 }
