@@ -4,9 +4,9 @@
     using Products;
     using System.Linq;
 
-    public class CandyDrinkAndMeatUniversalFactory : IMeatCandyAndDrinkFactory
+    public class CandyDrinkAndMeatTypeFactory : IMeatCandyAndDrinkFactory
     {
-        public CandyDrinkAndMeatUniversalFactory(object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
+        public CandyDrinkAndMeatTypeFactory(object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
         {
             MeatDefaults = meatArgs;
             CandyDefaults = candyArgs;

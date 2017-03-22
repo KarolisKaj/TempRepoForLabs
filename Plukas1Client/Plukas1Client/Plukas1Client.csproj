@@ -60,11 +60,13 @@
   <ItemGroup>
     <Compile Include="BootStrapper.cs" />
     <Compile Include="FactoryServiceSingleton.cs" />
+    <Compile Include="FactoryStructs\CandyDrinkAndMeatClonableFactory.cs" />
+    <Compile Include="FactoryStructs\CandyDrinkAndMeatConcreteFactory.cs" />
     <Compile Include="FactoryStructs\IMeatCandyAndDrinkFactory.cs" />
     <Compile Include="Products\CandyCaramel.cs" />
     <Compile Include="Products\CandyChocolade.cs" />
     <Compile Include="Products\CandyBase.cs" />
-    <Compile Include="FactoryStructs\CandyDrinkAndMeatUniversalFactory.cs" />
+    <Compile Include="FactoryStructs\CandyDrinkAndMeatTypeFactory.cs" />
     <Compile Include="Products\DrinkAlchohol.cs" />
     <Compile Include="Products\DrinkBase.cs" />
     <Compile Include="Products\DrinkEnergy.cs" />

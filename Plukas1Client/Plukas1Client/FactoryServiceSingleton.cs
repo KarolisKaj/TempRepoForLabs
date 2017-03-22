@@ -15,7 +15,7 @@
                 if (_productFactory == null)
                     lock (_lockRoot)
                         if (_productFactory == null)
-                            _productFactory = new CandyDrinkAndMeatUniversalFactory();
+                            _productFactory = new CandyDrinkAndMeatTypeFactory();
 
                 return _productFactory;
             }
