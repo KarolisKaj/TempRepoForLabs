@@ -8,7 +8,7 @@
     {
         static void Main(params string[] args)
         {
-            Task.Run(() => new BootStrapper(args));
+            Task.Run(() => new BootStrapper(args[0] as string));
             Console.ReadLine();
         }
     }

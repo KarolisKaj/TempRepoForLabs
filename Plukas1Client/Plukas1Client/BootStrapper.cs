@@ -1,16 +1,26 @@
 ﻿namespace Plukas1Client
 {
-    using System;
+    using Values;
+
     internal class BootStrapper
     {
-        public BootStrapper(params object[] args)
+        public BootStrapper(string family)
         {
 
-            var temp = new object[args.Length];
-            temp[0] = Type.GetType(args[0] as string);
-            Array.ConstrainedCopy(args, 1, temp, 1, temp.Length - 1);
-            var j = FactoryServiceSingleton.ProductFactory.CreateCandy(temp);
-            Console.WriteLine(j);
+            switch (family)
+            {
+                case "CaramelAlcoholChicken":
+                    FactoryServiceSingleton.ProductFactory.CreateCandy(new object[] { "Caramel", "Fruits", 50 });
+                    FactoryServiceSingleton.ProductFactory.CreateCandy(new object[] { "Boom", "Whiskey", 37 });
+                    FactoryServiceSingleton.ProductFactory.CreateCandy(new object[] { 17, Served.Cold });
+                    break;
+                case "CaramelEnergyChicken":
+                case "ChocoladeEnergyChicken":
+                case "ChocoladeAlcoholChicken":
+                case "CaramleAlchoholBeef":
+                default:
+                    break;
+            }
         }
     }
 }
