@@ -59,6 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootStrapper.cs" />
+    <Compile Include="Creators\AbstractCreator.cs" />
+    <Compile Include="Creators\DrinkCreator.cs" />
+    <Compile Include="Creators\ICreator.cs" />
+    <Compile Include="Creators\ISpecification.cs" />
+    <Compile Include="Creators\ITrader.cs" />
+    <Compile Include="Creators\Trader.cs" />
+    <Compile Include="Creators\UniversalCreator.cs" />
     <Compile Include="FactoryServiceSingleton.cs" />
     <Compile Include="FactoryStructs\CandyDrinkAndMeatClonableFactory.cs" />
     <Compile Include="FactoryStructs\CandyDrinkAndMeatConcreteFactory.cs" />

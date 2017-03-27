@@ -47,7 +47,7 @@
         }
 
 
-        public DrinkBase CreateDrink(params object[] args)
+        public DrinkBase CreateDrink(object[] args = null)
         {
             foreach (var drinkType in DrinkTypes)
             {
@@ -68,7 +68,7 @@
             throw new ArgumentException("No matching type found.");
         }
 
-        public MeatBase CreateMeat(params object[] args)
+        public MeatBase CreateMeat(object[] args = null)
         {
             foreach (var meatType in MeatTypes)
             {
