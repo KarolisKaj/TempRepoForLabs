@@ -6,8 +6,11 @@
 
     public class CandyDrinkAndMeatTypeFactory : IMeatCandyAndDrinkFactory
     {
-        public CandyDrinkAndMeatTypeFactory(object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
+        public CandyDrinkAndMeatTypeFactory(Type[] candyTypes = null, Type[] meatTypes = null, Type[] drinkTypes = null, object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
         {
+            CandyTypes = candyTypes;
+            MeatTypes = meatTypes;
+            DrinkTypes = drinkTypes;
             MeatDefaults = meatArgs;
             CandyDefaults = candyArgs;
             DrinkDefaults = drinkArgs;
@@ -16,61 +19,74 @@
         public object[] MeatDefaults { get; set; }
         public object[] CandyDefaults { get; set; }
         public object[] DrinkDefaults { get; set; }
+        public Type[] CandyTypes { get; }
+        public Type[] MeatTypes { get; }
+        public Type[] DrinkTypes { get; }
 
 
         // DRY, sorry! :(((
-        public CandyBase CreateCandy(params object[] args)
+        public CandyBase CreateCandy(object[] args = null)
         {
-            if (args == null || args.Length == 0)
+            foreach (var candyType in CandyTypes)
             {
-                if (CandyDefaults != null && CandyDefaults.Length > 0)
-                    return ((CandyDefaults[0] as Type).GetConstructor(CandyDefaults.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as CandyBase);
+                try
+                {
+                    if (args == null || args.Length == 0)
+                    {
+                        if (CandyDefaults != null && CandyDefaults.Length > 0)
+                            return (candyType.GetConstructor(CandyDefaults.Select(x => x.GetType()).ToArray()).Invoke(args.ToArray()) as CandyBase);
+                    }
+                    else
+                    {
+                        return (candyType.GetConstructor(args.Select(x => x.GetType()).ToArray()).Invoke(args.ToArray()) as CandyBase);
+                    }
+                }
+                catch { continue; }
             }
-            else if (args.Length == 1)
-            {
-                return ((args[0] as Type).GetConstructor(CandyDefaults.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as CandyBase);
-            }
-            else if (args.Length > 1)
-            {
-                return ((args[0] as Type).GetConstructor(args.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as CandyBase);
-            }
-            throw new NotImplementedException("No matches found.");
+            throw new ArgumentException("No matching type found.");
         }
+
 
         public DrinkBase CreateDrink(params object[] args)
         {
-            if (args == null || args.Length == 0)
+            foreach (var drinkType in DrinkTypes)
             {
-                if (DrinkDefaults != null && DrinkDefaults.Length > 0)
-                    return ((DrinkDefaults[0] as Type).GetConstructor(DrinkDefaults.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as DrinkBase);
+                try
+                {
+                    if (args == null || args.Length == 0)
+                    {
+                        if (DrinkDefaults != null && DrinkDefaults.Length > 0)
+                            return (drinkType.GetConstructor(DrinkDefaults.Select(x => x.GetType()).ToArray()).Invoke(DrinkDefaults.ToArray()) as DrinkBase);
+                    }
+                    else
+                    {
+                        return (drinkType.GetConstructor(args.Select(x => x.GetType()).ToArray()).Invoke(args.ToArray()) as DrinkBase);
+                    }
+                }
+                catch { continue; }
             }
-            else if (args.Length == 1)
-            {
-                return ((args[0] as Type).GetConstructor(DrinkDefaults.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as DrinkBase);
-            }
-            else if (args.Length > 1)
-            {
-                return ((args[0] as Type).GetConstructor(args.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as DrinkBase);
-            }
-            throw new NotImplementedException("No matches found.");
+            throw new ArgumentException("No matching type found.");
         }
 
         public MeatBase CreateMeat(params object[] args)
         {
-            if (args == null || args.Length == 0)
+            foreach (var meatType in MeatTypes)
             {
-                if (MeatDefaults != null && MeatDefaults.Length > 0)
-                    return ((MeatDefaults[0] as Type).GetConstructor(MeatDefaults.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as MeatBase);
+                try
+                {
+                    if (args == null || args.Length == 0)
+                    {
+                        if (MeatDefaults != null && MeatDefaults.Length > 0)
+                            return (meatType.GetConstructor(MeatDefaults.Select(x => x.GetType()).ToArray()).Invoke(MeatDefaults.ToArray()) as MeatBase);
+                    }
+                    else
+                    {
+                        return (meatType.GetConstructor(args.Select(x => x.GetType()).ToArray()).Invoke(args.ToArray()) as MeatBase);
+                    }
+                }
+                catch { continue; }
             }
-            else if (args.Length == 1)
-            {
-                return ((args[0] as Type).GetConstructor(MeatDefaults.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as MeatBase);
-            }
-            else if (args.Length > 1)
-            {
-                return ((args[0] as Type).GetConstructor(args.Skip(1).Select(x => x.GetType()).ToArray()).Invoke(args.Skip(1).ToArray()) as MeatBase);
-            }
-            throw new NotImplementedException("No matches found.");
+            throw new ArgumentException("No matching type found.");
         }
     }
 }
