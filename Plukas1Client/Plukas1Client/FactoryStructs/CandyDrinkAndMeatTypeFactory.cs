@@ -6,11 +6,11 @@
 
     public class CandyDrinkAndMeatTypeFactory : IMeatCandyAndDrinkFactory
     {
-        public CandyDrinkAndMeatTypeFactory(Type candyTypes, Type meatTypes, Type drinkTypes, object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
+        public CandyDrinkAndMeatTypeFactory(Type candyType, Type meatType, Type drinkType, object[] meatArgs, object[] candyArgs, object[] drinkArgs)
         {
-            CandyTypes = candyTypes;
-            MeatTypes = meatTypes;
-            DrinkTypes = drinkTypes;
+            CandyType = candyType;
+            MeatType = meatType;
+            DrinkType = drinkType;
             MeatDefaults = meatArgs;
             CandyDefaults = candyArgs;
             DrinkDefaults = drinkArgs;
@@ -19,15 +19,14 @@
         public object[] MeatDefaults { get; set; }
         public object[] CandyDefaults { get; set; }
         public object[] DrinkDefaults { get; set; }
-        public Type CandyTypes { get; }
-        public Type MeatTypes { get; }
-        public Type DrinkTypes { get; }
-
+        public Type CandyType { get; }
+        public Type MeatType { get; }
+        public Type DrinkType { get; }
 
         // DRY, sorry! :(((
         public CandyBase CreateCandy(object[] args = null)
         {
-            foreach (var candyType in CandyTypes)
+            foreach (var candyType in CandyType)
             {
                 try
                 {
@@ -46,10 +45,9 @@
             throw new ArgumentException("No matching type found.");
         }
 
-
         public DrinkBase CreateDrink(object[] args = null)
         {
-            foreach (var drinkType in DrinkTypes)
+            foreach (var drinkType in DrinkType)
             {
                 try
                 {
@@ -70,7 +68,7 @@
 
         public MeatBase CreateMeat(object[] args = null)
         {
-            foreach (var meatType in MeatTypes)
+            foreach (var meatType in MeatType)
             {
                 try
                 {
@@ -89,9 +87,24 @@
             throw new ArgumentException("No matching type found.");
         }
 
-        public CandyBase CreateCandy(string name)
+        public CandyBase CreateCandy(string name = null)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (String.IsNullOrWhiteSpace(name))
+                {
+                    return (candyType.GetConstructor(CandyDefaults.Select(x => x.GetType()).ToArray()).Invoke(args.ToArray()) as CandyBase);
+                }
+                else
+                {
+                    return (candyType.GetConstructor(args.Select(x => x.GetType()).ToArray()).Invoke(args.ToArray()) as CandyBase);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException?.Message ?? ex.Message);
+            }
+            throw new ArgumentException("Was not able to create candy! :(");
         }
 
         public MeatBase CreateMeat(int id, int fat)
