@@ -6,7 +6,7 @@
 
     public class CandyDrinkAndMeatTypeFactory : IMeatCandyAndDrinkFactory
     {
-        public CandyDrinkAndMeatTypeFactory(Type[] candyTypes = null, Type[] meatTypes = null, Type[] drinkTypes = null, object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
+        public CandyDrinkAndMeatTypeFactory(Type candyTypes = null, Type meatTypes = null, Type drinkTypes = null, object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
         {
             CandyTypes = candyTypes;
             MeatTypes = meatTypes;
@@ -19,9 +19,9 @@
         public object[] MeatDefaults { get; set; }
         public object[] CandyDefaults { get; set; }
         public object[] DrinkDefaults { get; set; }
-        public Type[] CandyTypes { get; }
-        public Type[] MeatTypes { get; }
-        public Type[] DrinkTypes { get; }
+        public Type CandyTypes { get; }
+        public Type MeatTypes { get; }
+        public Type DrinkTypes { get; }
 
 
         // DRY, sorry! :(((
@@ -87,6 +87,18 @@
                 catch { continue; }
             }
             throw new ArgumentException("No matching type found.");
+        }
+
+        public CandyBase CreateCandy(string name)
+        {
+        }
+
+        public MeatBase CreateMeat(int fat)
+        {
+        }
+
+        public DrinkBase CreateDrink(bool allowedUnderaged)
+        {
         }
     }
 }

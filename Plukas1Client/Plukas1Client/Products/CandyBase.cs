@@ -1,18 +1,21 @@
 ﻿namespace Plukas1Client.Products
 {
     using System;
-    public class CandyBase : ICloneable
+    public abstract class CandyBase : ICloneable
     {
         public CandyBase(string name)
         {
             Name = name;
         }
 
+        public CandyBase(CandyBase from)
+        {
+            Name = from.Name;
+        }
+
         public string Name { get; }
 
-        public virtual object Clone()
-        {
-            return new CandyBase(this.Name);
-        }
+        public abstract bool Eat(int time);
+        public abstract object Clone();
     }
 }

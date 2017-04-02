@@ -15,6 +15,7 @@
 
         public CandyBase CreateCandy(params object[] args)
         {
+            // CandyBase lookup
             var typeToInit = Type.GetType(args[0] as string);
             return ((_initializedObjects.FirstOrDefault(x => x.GetType() == typeToInit) as CandyBase).Clone() as CandyBase);
         }

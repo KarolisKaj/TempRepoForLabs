@@ -1,4 +1,6 @@
-﻿namespace Plukas1Client.Products
+﻿using System;
+
+namespace Plukas1Client.Products
 {
     public class CandyCaramel : CandyBase
     {
@@ -7,13 +9,24 @@
             Covering = covering;
             Size = size;
         }
+        // throw new check if client receives good execption.
+        public CandyCaramel(CandyCaramel from) : base(from)
+        {
+            Covering = from.Covering;
+            Size = from.Size;
+        }
 
         public string Covering { get; set; }
         public int Size { get; set; }
 
         public override object Clone()
         {
-            return new CandyCaramel((base.Clone() as CandyBase)?.Name, this.Covering, this.Size);
+            return new CandyCaramel(this);
+        }
+
+        public override bool Eat(int time)
+        {
+            throw new NotImplementedException();
         }
     }
 }

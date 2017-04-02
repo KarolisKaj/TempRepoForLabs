@@ -5,8 +5,9 @@ namespace Plukas1Client.FactoryStructs
 {
     public interface IMeatCandyAndDrinkFactory
     {
-        CandyBase CreateCandy(params object[] args);
-        MeatBase CreateMeat(params object[] args);
-        DrinkBase CreateDrink(params object[] args);
+        // Actual params
+        CandyBase CreateCandy(string name);
+        MeatBase CreateMeat(int fat);
+        DrinkBase CreateDrink(bool allowedUnderaged);
     }
 }

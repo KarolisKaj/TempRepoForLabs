@@ -1,16 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Plukas1Client.Creators
 {
     public class AbstractCreator : ICreator
     {
+        private Type CreateItem { get; set; }
+        public AbstractCreator(Type createItem)
+        {
+            CreateItem = createItem;
+        }
         public object Create(object[] args)
         {
-            throw new NotImplementedException();
+            return CreateItem.GetConstructor(args.Select(x => x.GetType()).ToArray()).Invoke(args);
         }
     }
 }
