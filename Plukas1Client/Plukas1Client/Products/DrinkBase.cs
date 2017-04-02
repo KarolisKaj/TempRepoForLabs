@@ -6,11 +6,11 @@
         {
             Name = name;
         }
-        public string Name { get; set; }
-
-        public DrinkBase Clone()
+        public DrinkBase(string name, bool allowUnderage) : this(name)
         {
-            return new DrinkBase(this.Name);
+            AllowUnderage = allowUnderage;
         }
+        public string Name { get; set; }
+        public bool AllowUnderage { get; set; } = true;
     }
 }

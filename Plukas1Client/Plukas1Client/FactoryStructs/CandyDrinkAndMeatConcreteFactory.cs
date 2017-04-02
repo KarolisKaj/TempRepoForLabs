@@ -1,23 +1,34 @@
-﻿using Plukas1Client.Products;
-using Plukas1Client.Values;
-
-namespace Plukas1Client.FactoryStructs
+﻿namespace Plukas1Client.FactoryStructs
 {
+    using Products;
+    using System.Linq;
+
     public class CandyDrinkAndMeatConcreteFactory : IMeatCandyAndDrinkFactory
     {
-        public CandyBase CreateCandy(params object[] args)
+        public CandyDrinkAndMeatConcreteFactory(object[] meatDefaults = null, object[] drinkDefaults = null, object[] candyDefaults = null)
         {
-            return new CandyCaramel((string)args[0], (string)args[1], (int)args[2]);
+            MeatDefaults = meatDefaults;
+            DrinkDefaults = drinkDefaults;
+            CandyDefaults = candyDefaults;
         }
 
-        public DrinkBase CreateDrink(params object[] args)
-        {
-            return new DrinkAlchohol((string)args[0], (string)args[1], (int)args[2]);
-        }
+        public object[] MeatDefaults { get; set; }
+        public object[] DrinkDefaults { get; set; }
+        public object[] CandyDefaults { get; set; }
 
-        public MeatBase CreateMeat(params object[] args)
+        public CandyBase CreateCandy(string name)
         {
-            return new MeatChicken((int)args[0], (Served)args[1]);
+            if (CandyDefaults != null && CandyDefaults?.Count(x => x.GetType() == typeof(string)) == 2)
+                new CandyChocolade(CandyDefaults[0] as string, CandyDefaults[1] as string);
+            return new CandyCaramel(name, "Vafle", 100);
+        }
+        public DrinkBase CreateDrink(string name, bool allowedUnderaged)
+        {
+            return new DrinkAlchohol(name, "Whiskey", allowedUnderaged, 35);
+        }
+        public MeatBase CreateMeat(int id, int fat)
+        {
+            return new MeatBeef(id, fat);
         }
     }
 }

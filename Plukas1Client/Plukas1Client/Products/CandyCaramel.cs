@@ -10,7 +10,7 @@ namespace Plukas1Client.Products
             Size = size;
         }
         // throw new check if client receives good execption.
-        public CandyCaramel(CandyCaramel from) : base(from)
+        protected CandyCaramel(CandyCaramel from) : base(from)
         {
             Covering = from.Covering;
             Size = from.Size;

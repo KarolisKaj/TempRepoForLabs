@@ -8,7 +8,7 @@
             Name = name;
         }
 
-        public CandyBase(CandyBase from)
+        protected CandyBase(CandyBase from)
         {
             Name = from.Name;
         }

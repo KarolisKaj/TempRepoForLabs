@@ -13,23 +13,21 @@
             _initializedObjects = initializedObjects;
         }
 
-        public CandyBase CreateCandy(params object[] args)
+        public CandyBase CreateCandy(string name = null)
         {
-            // CandyBase lookup
-            var typeToInit = Type.GetType(args[0] as string);
-            return ((_initializedObjects.FirstOrDefault(x => x.GetType() == typeToInit) as CandyBase).Clone() as CandyBase);
+            var objectToInit = _initializedObjects.SingleOrDefault(x => x.GetType().IsAssignableFrom(typeof(CandyBase)));
+            return ((objectToInit as CandyBase).Clone() as CandyBase);
         }
 
-        public DrinkBase CreateDrink(params object[] args)
+        public DrinkBase CreateDrink(string name = null, bool allowedUnderaged = false)
         {
-            var typeToInit = Type.GetType(args[0] as string);
-            return ((_initializedObjects.FirstOrDefault(x => x.GetType() == typeToInit) as DrinkBase).Clone() as DrinkBase);
+            throw new NotImplementedException();
         }
 
-        public MeatBase CreateMeat(params object[] args)
+        public MeatBase CreateMeat(int id, int fat)
         {
-            var typeToInit = typeof(MeatBase);
-            return ((_initializedObjects.FirstOrDefault(x => x.GetType() == typeToInit) as MeatBase).Clone() as MeatBase);
+            var objectToInit = _initializedObjects.SingleOrDefault(x => x.GetType().IsAssignableFrom(typeof(MeatBase)));
+            return ((objectToInit as MeatBase).Clone() as MeatBase);
         }
     }
 }

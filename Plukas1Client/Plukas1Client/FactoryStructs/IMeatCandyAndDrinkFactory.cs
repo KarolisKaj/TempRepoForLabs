@@ -7,7 +7,7 @@ namespace Plukas1Client.FactoryStructs
     {
         // Actual params
         CandyBase CreateCandy(string name);
-        MeatBase CreateMeat(int fat);
-        DrinkBase CreateDrink(bool allowedUnderaged);
+        MeatBase CreateMeat(int id, int fat);
+        DrinkBase CreateDrink(string name, bool allowedUnderaged);
     }
 }

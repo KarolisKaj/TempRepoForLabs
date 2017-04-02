@@ -6,7 +6,7 @@
 
     public class CandyDrinkAndMeatTypeFactory : IMeatCandyAndDrinkFactory
     {
-        public CandyDrinkAndMeatTypeFactory(Type candyTypes = null, Type meatTypes = null, Type drinkTypes = null, object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
+        public CandyDrinkAndMeatTypeFactory(Type candyTypes, Type meatTypes, Type drinkTypes, object[] meatArgs = null, object[] candyArgs = null, object[] drinkArgs = null)
         {
             CandyTypes = candyTypes;
             MeatTypes = meatTypes;
@@ -91,14 +91,17 @@
 
         public CandyBase CreateCandy(string name)
         {
+            throw new NotImplementedException();
         }
 
-        public MeatBase CreateMeat(int fat)
+        public MeatBase CreateMeat(int id, int fat)
         {
+            throw new NotImplementedException();
         }
 
-        public DrinkBase CreateDrink(bool allowedUnderaged)
+        public DrinkBase CreateDrink(string name, bool allowedUnderaged)
         {
+            throw new NotImplementedException();
         }
     }
 }
